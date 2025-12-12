@@ -1,0 +1,384 @@
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --bg-color: #1e1e2e;
+    --card-bg: #2d2d44;
+    --section-alt-bg: #232336; /* 섹션 구분용 배경색 */
+    --text-color: #f1f2f6;
+    --text-muted: #a4b0be;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: rgba(30, 30, 46, 0.95);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+/* Hero Section */
+#hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+}
+
+#hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--secondary-color);
+}
+
+/* Sections */
+section {
+    padding: 60px 0;
+}
+
+/* Section Card Style */
+/* 주의: header 내부의 .container에는 적용되지 않도록 section 자손 선택자 사용 */
+section .container {
+    background-color: var(--card-bg);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-align: center;
+    color: var(--secondary-color);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 제목 밑에 멋진 밑줄 추가 */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* About Section Styles */
+.about-content {
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills-container h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* 아이콘 사이 간격 넉넉하게 */
+    flex-wrap: wrap;
+    margin-top: 30px;
+    align-items: center;
+}
+
+/* 아이콘 스타일 */
+.skills i, .skills img {
+    font-size: 5rem; /* 로고 크기 큼직하게 (80px 정도) */
+    width: 80px; /* 이미지 로고 크기 */
+    height: 80px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.skills i:hover, .skills img:hover {
+    transform: translateY(-10px) scale(1.1); /* 둥실 떠오르며 살짝 커짐 */
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5)); /* 그림자 효과 */
+}
+
+/* Projects Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--bg-color); /* 내부 카드는 더 어둡게 */
+    padding: 25px;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e2e; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4b4b66; 
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6c5ce7; 
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    height: 80px; /* 높이를 조금 더 넉넉하게 */
+    overflow-y: auto; /* 내용이 넘치면 스크롤바 생김 */
+    padding-right: 5px; /* 스크롤바와 텍스트 간격 */
+}
+
+/* 카드 내부 스크롤바는 좀 더 얇게 */
+.card p::-webkit-scrollbar {
+    width: 4px;
+}
+
+.card p::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.card p::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 2px;
+}
+
+.card p::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+
+.card-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 15px;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+}
+
+.card-link {
+    display: inline-block;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.loading {
+    text-align: center;
+    grid-column: 1 / -1;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+/* Contact */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.contact-form {
+    flex: 2;
+    min-width: 300px;
+    max-width: 600px; /* 폼의 최대 너비를 제한하여 너무 넓어지는 것을 방지 */
+    background: rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #1a1a24;
+    color: #fff;
+    font-family: inherit;
+    transition: border-color 0.3s;
+    resize: none; /* 텍스트 박스 크기 조절 방지 */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.submit-btn {
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Projects GitHub Button */
+.projects-more {
+    text-align: right;
+    margin-top: 30px;
+    padding-right: 10px;
+}
+
+.projects-more a {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    color: var(--secondary-color);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.projects-more a:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(162, 155, 254, 0.4);
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #151520;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #hero h2 {
+        font-size: 2rem;
+    }
+}
